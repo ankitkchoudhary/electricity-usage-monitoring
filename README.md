@@ -17,6 +17,9 @@ The respective Images can be found here:
 The application has been split up in 2 segments to enable elasticity in the deployment options. <br><br>
 **Example:**<br>You might want to Run the Data Handler on a Public Cloud, whereas the Dashboard App on a Single board Computer at your residence.
 
+## Dashboard - Preview
+![](./Dashboard_Screenshot.jpg)
+
 ## Pre-Requisites
 You must create an account with the Texas Smart Meter Services by providing your meter number and address details.
 https://www.smartmetertexas.com/
