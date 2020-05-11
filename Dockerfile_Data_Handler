@@ -1,0 +1,12 @@
+FROM python:3.8.2
+RUN mkdir /src
+COPY api_endpoints.ini /src/
+COPY secrets.ini /src/
+COPY azure_blob.py /src/
+COPY meter_session_manager.py /src/
+COPY requirements.txt /src/
+COPY runner.py /src/
+ENV PYTHONUNBUFFERED 0
+WORKDIR /src
+RUN pip install --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org --default-timeout=180 -r ./requirements.txt
+CMD ["python", "runner.py"]

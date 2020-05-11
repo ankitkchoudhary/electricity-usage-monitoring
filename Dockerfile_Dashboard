@@ -1,0 +1,13 @@
+FROM python:3.8.2
+RUN mkdir /src
+COPY data_files /src/data_files/
+COPY secrets.ini /src/
+COPY azure_blob.py /src/
+COPY requirements.txt /src/
+COPY render_dashboard.py /src/
+ENV PYTHONUNBUFFERED 0
+WORKDIR /src
+RUN pip install --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --trusted-host pypi.org --default-timeout=180 -r ./requirements.txt
+# exposing default port for streamlit
+EXPOSE 8501
+CMD ["streamlit", "run", "render_dashboard.py"]
